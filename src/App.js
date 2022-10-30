@@ -1,34 +1,40 @@
 import logo from './logo.svg';
 import './App.css';
+import { ConnectWallet, useAddress, useContract, useContractRead } from '@thirdweb-dev/react';
+import GithubButton from './components/buttons/github_button/GithubButton';
 
 export default function App() {
   const address = useAddress();
-  // const { contract } = useContract("0x00237106cEe0163185B47Fa99853D1dD7DA559FF");
-  // const mintNft = async () => {
-  //   try {
-  //     const req = await fetch("/api/claim-nft", {
-  //       method: "POST",
-  //     });
-  //     const res = await req.json();
+  const { contract } = useContract("0x00237106cEe0163185B47Fa99853D1dD7DA559FF");
 
-  //     if (!req.ok) {
-  //       throw new Error(res.message);
-  //     }
+  const mintNft = async () => {
+    try {
+      const req = await fetch("/api/claim-nft", {
+        method: "POST",
+      });
+      const res = await req.json();
 
-  //     await contract.signature.mint(res.signedPayload);
-  //     alert("NFT minted!");
-  //   } catch (err) {
-  //     console.error(err);
-  //     alert("Failed to mint NFT");
-  //   }
-  // };
+      if (!req.ok) {
+        throw new Error(res.message);
+      }
+
+      await contract.signature.mint(res.signedPayload);
+      alert("NFT minted!");
+    } catch (err) {
+      console.error(err);
+      alert("Failed to mint NFT");
+    }
+  };
+
+
+  const { data: name, isLoading: loadingName } = useContractRead( contract, "name" );
 
   return (
-    <ThirdwebProvider desiredChainId={ChainId.Mumbai}>
-      {/* <YourApp /> */}<p>hi</p>
+    <div>
+      <p>Contract Name: {name}</p>
       <ConnectWallet />
-      <GithubButton/>
-    </ThirdwebProvider>
+      <GithubButton />
+    </div>
   );
 };
 
