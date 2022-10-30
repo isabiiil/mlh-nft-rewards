@@ -1,4 +1,5 @@
-import logo from './logo.svg';
+import { useAddress, ConnectWallet, useContract, Web3Button } from '@thirdweb-dev/react';
+import GithubButton from "./components/buttons/github_button/GithubButton";
 import './App.css';
 import { ConnectWallet, useAddress, useContract, useContractRead } from '@thirdweb-dev/react';
 import GithubButton from './components/buttons/github_button/GithubButton';
@@ -26,15 +27,26 @@ export default function App() {
     }
   };
 
+  //     if (!req.ok) {
+  //       throw new Error(res.message);
+  //     }
 
-  const { data: name, isLoading: loadingName } = useContractRead( contract, "name" );
+  //     await contract.signature.mint(res.signedPayload);
+  //     alert("NFT minted!");
+  //   } catch (err) {
+  //     console.error(err);
+  //     alert("Failed to mint NFT");
+  //   }
+  // };
 
   return (
     <div>
       <p>Contract Name: {name}</p>
       <ConnectWallet />
-      <GithubButton />
-    </div>
+      <GithubButton/>
+      {/* <Web3Button contractAddress={contract} action={() => mintNft()} /> */}
+      {/* <p>{contract}</p> */}
+    </>
   );
 };
 
