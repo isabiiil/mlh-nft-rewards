@@ -1,5 +1,3 @@
-import { useAddress, ConnectWallet, useContract, Web3Button } from '@thirdweb-dev/react';
-import GithubButton from "./components/buttons/github_button/GithubButton";
 import './App.css';
 import { ConnectWallet, useAddress, useContract, useContractRead } from '@thirdweb-dev/react';
 import GithubButton from './components/buttons/github_button/GithubButton';
@@ -7,6 +5,8 @@ import GithubButton from './components/buttons/github_button/GithubButton';
 export default function App() {
   const address = useAddress();
   const { contract } = useContract("0x00237106cEe0163185B47Fa99853D1dD7DA559FF");
+
+  const { data: name, isLoading: loadingName } = useContractRead( contract, "name" );
 
   const mintNft = async () => {
     try {
@@ -40,7 +40,7 @@ export default function App() {
   // };
 
   return (
-    <div>
+    <>
       <p>Contract Name: {name}</p>
       <ConnectWallet />
       <GithubButton/>
