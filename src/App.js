@@ -1,4 +1,5 @@
-import { ChainId, ThirdwebProvider, ConnectWallet, useAddress, useContract } from "@thirdweb-dev/react";
+import logo from './logo.svg';
+import './App.css';
 
 export default function App() {
   const address = useAddress();
@@ -26,6 +27,7 @@ export default function App() {
     <ThirdwebProvider desiredChainId={ChainId.Mumbai}>
       {/* <YourApp /> */}<p>hi</p>
       <ConnectWallet />
+      <GithubButton/>
     </ThirdwebProvider>
   );
 };

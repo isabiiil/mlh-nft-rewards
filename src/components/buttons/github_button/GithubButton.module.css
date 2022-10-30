@@ -1,0 +1,27 @@
+body{
+    /* position: absolute; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.github_btn{
+    width: 100%;
+    background-color: #000;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 10px;
+    cursor:pointer;
+    transition: all 0.2s ease;
+}
+
+.github_btn_text{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 1rem;
+}
+.github_btn:hover{
+    transform: translateY(-.25rem);
+}
