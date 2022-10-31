@@ -29,10 +29,8 @@ const onSuccess = (response) => {
   })
     .then((response) => response.text())
     .then((paramsString) => {
-      console.log(paramsString);
       let params = new URLSearchParams(paramsString);
       const access_token = params.get("access_token");
-      console.log(access_token);
       // Request to return data of a user that has been authenticated
       return fetch(`https://api.github.com/user`, {
         headers: {
