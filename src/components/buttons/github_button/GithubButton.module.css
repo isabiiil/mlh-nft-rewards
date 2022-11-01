@@ -12,7 +12,7 @@ body{
     align-items: center;
     justify-content: center;
     border-radius: 20px;
-    padding: 10px;
+    padding: 5px;
     cursor:pointer;
     transition: all 0.2s ease;
 }
@@ -20,8 +20,20 @@ body{
 .github_btn_text{
     font-size: 1.2rem;
     font-weight: bold;
-    margin-left: 1rem;
 }
+.github_btn_icon{
+    /* margin-left: 2rem; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .github_btn:hover{
     transform: translateY(-.25rem);
 }
